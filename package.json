@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "set NODE_ENV=development&&webpack serve --open",
+    "start": "set NODE_ENV=development&&webpack serve --open firefox",
     "dev": "set NODE_ENV=development&&webpack",
     "build": "set NODE_ENV=production&&webpack"
   },

@@ -93,18 +93,8 @@ module.exports = {
   //plugins
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/DEV.pug",
+      template: "src/index.html",
       filename: 'index.html',
-    }),
-    new HtmlWebpackPlugin({
-    
-      template: "src/type.pug",
-      filename: 'type.html',
-    }),
-    new HtmlWebpackPlugin({
-    
-      template: "src/landing.pug",
-      filename: 'landing.html',
     }),
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css'
