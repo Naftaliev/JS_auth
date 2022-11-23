@@ -14,6 +14,17 @@ export class Question {
                 return question
             })
             .then(addToLocalStorage)
+            .then(Question.renderList)
+    }
+
+    static renderList() {
+        const questions = getQuestionsfromLS()
+
+        const html = questions.length ? questions.map(toCard).join(' ') : '<div class="mui--text-black-54 mui--text-body2">NO QUESTIONS</div>'
+        
+        const list = document.getElementById('list')
+
+        list.innerHTML = html
     }
 }
 
@@ -27,4 +38,15 @@ function addToLocalStorage(question) {
 
 function getQuestionsfromLS() {
     return JSON.parse(localStorage.getItem('questions') || '[]')
+}
+
+function toCard(question) {
+    return `
+    <div class="mui--text-black-54 mui--text-body2">
+        ${new Date(question.date).toLocaleDateString()}
+        ${new Date(question.date).toLocaleTimeString()}
+    </div>
+    <div class="mui--text-black-54 mui--text-body2">${question.text}</div>
+    `
+
 }
